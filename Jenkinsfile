@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'amritdevops/node-app'
+        DOCKER_IMAGE = 'amritdevops/node-app:latest'
     }
 
     stages {
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t node_app .'
+                sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
 
